@@ -2,20 +2,31 @@ ALGORITHM algorithm_Char
 VAR
     ch: STRING :="Hello world.";
     i : INTEGER ;
-    NB : INTEGER :=0;
     NBvowels: INTEGER :=0 ;
+    NBwords: INTEGER :=0 ;
 BEGIN
-    write("Enter a sentence")
-    read(ch)
-    NB := longeur(ch)
-    FOR i:=0 TO longeur(ch) DO
-        IF ch[i]='a' or ch[i]='e' or ch[i]='i'
-            or ch[i]='o' or ch[i]='y' or ch[i]='y' THEN
-            NBvowels := NBvowels + 1 ;
-        END_IF
-        i := i+ 1
-    END_FOR
-    write('Your sentence contains',NB,'charcters');
-    write('number of words',i)
+	while (ch[i] !='.') do
+		if (ch[i] == ' ' ) then 
+		   NBwords:= NBwords + 1 ;
+		Elseif ( ch[i] == 'a') then 
+		   NBvowels := NBvowels + 1 ;
+		Elseif ( ch[i] == 'e') then 
+		   NBvowels := NBvowels + 1 ;
+		Elseif ( ch[i] == 'i') then 
+		   NBvowels := NBvowels + 1 ;
+		Elseif ( ch[i] == 'o') then 
+		   NBvowels := NBvowels + 1;
+		Elseif ( ch[i] == 'u') then 
+		   NBvowels := NBvowels + 1 ;
+		Elseif ( ch[i] == 'y') then 
+		   NBvowels := NBvowels + 1 ;
+		Else
+		  NBvowels := NBvowels ;
+		  NBwords := NBwords ;  
+		END if
+	i := i + 1 ;
+	END while   
+    write('Your sentence contains',i,'charcters');
+    write('number of words',NBwords)
     write('total number of vowels',NBvowels);
 END
